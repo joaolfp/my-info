@@ -2,6 +2,8 @@ use reqwest;
 use serde::{Deserialize, Serialize};
 use std::io;
 
+mod tests;
+
 #[derive(Debug, Serialize, Deserialize)]
 struct APIResponse {
     login: String,

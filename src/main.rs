@@ -15,11 +15,7 @@ struct APIResponse {
 
 #[tokio::main]
 async fn main() -> Result<(), reqwest::Error> {
-    println!("Enter the user you want to query:");
-    let mut user = String::new();
-    io::stdin().read_line(&mut user).expect("Error typing username");
-
-    println!("---------------------------------");
+    let user = header();
 
     let url = format!(
         "https://api.github.com/users/{set_user}",
@@ -33,13 +29,21 @@ async fn main() -> Result<(), reqwest::Error> {
         .await?;
 
     if response.status().is_success() {
-        let response: APIResponse = response.json().await?;
-        setup_response(&response)
+        let result: APIResponse = response.json().await?;
+        setup_response(&result)
     } else {
         println!("Request failed with status code: {}", response.status());
     }
 
     Ok(())
+}
+
+fn header() -> String {
+    println!("Enter the user you want to query:");
+    let mut user = String::new();
+    io::stdin().read_line(&mut user).expect("Error typing username");
+    println!("---------------------------------");
+    return user
 }
 
 fn setup_response(response: &APIResponse) {

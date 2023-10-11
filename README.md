@@ -1,5 +1,7 @@
 # MyInfo
 [![CI](https://github.com/joaolfp/MyInfo/actions/workflows/CI.yml/badge.svg)](https://github.com/joaolfp/MyInfo/actions/workflows/CI.yml)
+![GitHub tag (with filter)](https://img.shields.io/github/v/tag/joaolfp/MyInfo)
+![GitHub](https://img.shields.io/github/license/joaolfp/MyInfo)
 
 In this project you will see some information about yourself through the GitHub user. Let's evolve this project.
 

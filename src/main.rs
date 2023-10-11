@@ -33,15 +33,19 @@ async fn main() -> Result<(), reqwest::Error> {
         .await?;
 
     if response.status().is_success() {
-        let result: APIResponse = response.json().await?;
-        println!("Login: {}", result.login);
-        println!("URL: {}", result.url);
-        println!("Name: {}", result.name);
-        println!("Followers: {}", result.followers);
-        println!("Following: {}", result.following);
+        let response: APIResponse = response.json().await?;
+        setup_response(&response)
     } else {
         println!("Request failed with status code: {}", response.status());
     }
 
     Ok(())
+}
+
+fn setup_response(response: &APIResponse) {
+    println!("Login: {}", response.login);
+    println!("URL: {}", response.url);
+    println!("Name: {}", response.name);
+    println!("Followers: {}", response.followers);
+    println!("Following: {}", response.following);
 }

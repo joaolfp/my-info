@@ -11,6 +11,8 @@ Just clone the project and run this command in the folder. You need to have carg
 cargo run
 ```
 
+<img src="https://github.com/joaolfp/MyInfo/blob/main/images/example.png">
+
 ## Contribution
 
 I will try to evolve this project, please feel free to open a PR to evolve and bring suggestions.

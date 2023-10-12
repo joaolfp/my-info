@@ -1,5 +1,5 @@
 [package]
-name = "MyInfo"
+name = "my-info"
 version = "0.1.0"
 edition = "2021"
 authors = ["João Lucas <joaolucasfp2001@gmail.com>"]
@@ -12,7 +12,8 @@ exclude = [".github/**","images/*.png"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+comfy-table = "7.0.1"
 futures = "0.3"
 reqwest = { version = "0.11", features = ["json"] }
-tokio = { version = "1.12.0", features = ["full"] }
+tokio = { version = "1.33.0", features = ["full"] }
 serde = { version = "1.0", features = ["derive"] }

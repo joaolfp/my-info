@@ -1,5 +1,5 @@
 [package]
-name = "MyInfo"
+name = "my-info"
 version = "0.1.0"
 edition = "2021"
 authors = ["João Lucas <joaolucasfp2001@gmail.com>"]

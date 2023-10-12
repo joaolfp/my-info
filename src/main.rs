@@ -1,6 +1,7 @@
 use reqwest;
 use serde::{Deserialize, Serialize};
 use std::io;
+use comfy_table::Table;
 
 mod tests;
 
@@ -47,9 +48,17 @@ fn header() -> String {
 }
 
 fn setup_response(response: &APIResponse) {
-    println!("Login: {}", response.login);
-    println!("URL: {}", response.url);
-    println!("Name: {}", response.name);
-    println!("Followers: {}", response.followers);
-    println!("Following: {}", response.following);
+    let mut table = Table::new();
+
+    let titles = vec!["Login", "URL", "Name", "Followers", "Following"];
+
+    let rows = vec![
+        response.login.to_string(),
+        response.url.to_string(),
+        response.name.to_string(),
+        response.followers.to_string(),
+        response.following.to_string()];
+
+    table.set_header(titles).add_row(rows);
+    println!("{table}");
 }

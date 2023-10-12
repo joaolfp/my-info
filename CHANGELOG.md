@@ -1,6 +1,7 @@
 # CHANGELOG
 
-## Not yet
+## Version 0.2.0
+**2023-10-11**
 
 - Fix error name project - @joaolfp
 - Add response with table - @joaolfp

@@ -8,7 +8,7 @@ mod tests;
 #[derive(Debug, Serialize, Deserialize)]
 struct APIResponse {
     login: String,
-    url: String,
+    html_url: String,
     name: String,
     followers: i16,
     following: i16
@@ -54,7 +54,7 @@ fn setup_response(response: &APIResponse) {
 
     let rows = vec![
         response.login.to_string(),
-        response.url.to_string(),
+        response.html_url.to_string(),
         response.name.to_string(),
         response.followers.to_string(),
         response.following.to_string()];

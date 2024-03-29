@@ -15,5 +15,5 @@ exclude = [".github/**","images/*.png"]
 comfy-table = "7.1.0"
 futures = "0.3"
 reqwest = { version = "0.12", features = ["json"] }
-tokio = { version = "1.36.0", features = ["full"] }
+tokio = { version = "1.37.0", features = ["full"] }
 serde = { version = "1.0", features = ["derive"] }

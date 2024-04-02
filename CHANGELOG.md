@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version 0.3.0
+**2024-04-02**
+
+- New header layout - @joaolfp
+
 ## Version 0.2.0
 **2023-10-11**
 

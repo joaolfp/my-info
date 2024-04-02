@@ -5,10 +5,11 @@
 
 In this project you will see some information about yourself through the GitHub user. Let's evolve this project.
 
-## Usage
-Just clone the project and run this command in the folder. You need to have cargo installed.
+## Installing
+Installing from crates.io (requires Rust/Cargo):
+
 ```shell
-cargo run
+cargo install my-info
 ```
 
 <img src="https://github.com/joaolfp/MyInfo/blob/main/images/example.png">

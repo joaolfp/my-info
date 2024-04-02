@@ -2,6 +2,7 @@ use reqwest;
 use serde::{Deserialize, Serialize};
 use std::io;
 use comfy_table::Table;
+use colored::Colorize;
 
 mod tests;
 
@@ -16,6 +17,8 @@ struct APIResponse {
 
 #[tokio::main]
 async fn main() -> Result<(), reqwest::Error> {
+    presentation();
+
     let user = header();
 
     let url = format!(
@@ -37,6 +40,27 @@ async fn main() -> Result<(), reqwest::Error> {
     }
 
     Ok(())
+}
+
+fn presentation() {
+    let text = r#"
+    _____ ______       ___    ___      ___  ________   ________ ________     
+    |\   _ \  _   \    |\  \  /  /|    |\  \|\   ___  \|\  _____\\   __  \    
+    \ \  \\\__\ \  \   \ \  \/  / /    \ \  \ \  \\ \  \ \  \__/\ \  \|\  \   
+     \ \  \\|__| \  \   \ \    / /      \ \  \ \  \\ \  \ \   __\\ \  \\\  \  
+      \ \  \    \ \  \   \/  /  /        \ \  \ \  \\ \  \ \  \_| \ \  \\\  \ 
+       \ \__\    \ \__\__/  / /           \ \__\ \__\\ \__\ \__\   \ \_______\
+        \|__|     \|__|\___/ /             \|__|\|__| \|__|\|__|    \|_______|
+                      \|___|/                                                                                                                   
+    "#;
+
+    println!("{}", text.yellow());
+
+    println!("🧰 In this project you will see some information about yourself through the GitHub user");
+    println!("🔨 João Lucas");
+    println!("💻 https://github.com/joaolfp/MyInfo");
+    println!("🔢 0.2.0 Version \n");
+
 }
 
 fn header() -> String {

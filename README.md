@@ -1,5 +1,6 @@
 # MyInfo
 [![CI](https://github.com/joaolfp/MyInfo/actions/workflows/CI.yml/badge.svg)](https://github.com/joaolfp/MyInfo/actions/workflows/CI.yml)
+[![Crates.io](https://img.shields.io/crates/v/my-info)](https://crates.io/crates/my-info)
 ![GitHub tag (with filter)](https://img.shields.io/github/v/tag/joaolfp/MyInfo)
 ![GitHub](https://img.shields.io/github/license/joaolfp/MyInfo)
 

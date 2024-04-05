@@ -6,7 +6,7 @@ use comfy_table::Table;
 pub struct APIResponse {
     login: String,
     html_url: String,
-    name: String,
+    name: Option<String>,
     followers: i16,
     following: i16
 }
@@ -38,10 +38,15 @@ fn setup_response(response: &APIResponse) {
 
     let titles = vec!["Login", "URL", "Name", "Followers", "Following"];
 
+    let name = match &response.name {
+        Some(n) => n.to_string(),
+        None => String::from("N/A"),
+    };
+
     let rows = vec![
         response.login.to_string(),
         response.html_url.to_string(),
-        response.name.to_string(),
+        name,
         response.followers.to_string(),
         response.following.to_string()];
 

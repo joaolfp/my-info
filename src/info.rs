@@ -3,12 +3,12 @@ use serde::{Deserialize, Serialize};
 use comfy_table::Table;
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct APIResponse {
+struct APIResponse {
     login: String,
     html_url: String,
     name: Option<String>,
-    followers: i16,
-    following: i16
+    followers: i64,
+    following: i64
 }
 
 pub async fn response(user: String) -> Result<(), reqwest::Error> {

@@ -7,10 +7,15 @@
 In this project you will see some information about yourself through the GitHub user. Let's evolve this project.
 
 ## Installing
-Installing from crates.io (requires Rust/Cargo):
+Installing from [crates.io](https://crates.io/) (requires Rust/Cargo):
 
 ```shell
 cargo install my-info
+```
+
+## Using
+
+```shell
 my-info
 ```
 

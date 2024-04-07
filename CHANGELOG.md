@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## Version 0.4.0
+**2024-04-06**
+
+- List all public repositories - @joaolfp
+- Updated comfy-table to 7.1.1 (was 7.1.0) - @joaolfp
+- Correction when the user was not found and now shows the status code - @joaolfp
+- Correction when filtering user who had followers or followed someone with a high number - @joaolfp
+
 ## Version 0.3.0
 **2024-04-02**
 

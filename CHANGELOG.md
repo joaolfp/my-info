@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Version 0.5.0
+**2024-04-21**
+
+- Bump tokio from 1.36.0 to 1.37.0 - #25 - @dependabot
+- Bump serde from 1.0.197 to 1.0.198 - #27 - @dependabot
+- Updated reqwest to 0.12.4 (was 0.12) - @joaolfp
+
 ## Version 0.4.0
 **2024-04-06**
 

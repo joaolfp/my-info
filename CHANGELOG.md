@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## Version 0.6.0
+**2024-10-05**
+
+- Bump serde from 1.0.209 to 1.0.210 - #47 - @dependabot
+- Bump reqwest from 0.12.7 to 0.12.8 - #48 - @dependabot
+- Bump openssl from 0.10.64 to 0.10.66 - #49 - @depandabot
+- Add progress bar - @joaolfp
+
 ## Version 0.5.0
 **2024-04-21**
 

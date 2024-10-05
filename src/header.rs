@@ -21,7 +21,7 @@ pub fn presentation() {
     println!("🧰 In this project you will see some information about yourself through the GitHub user");
     println!("🔨 João Lucas");
     println!("💻 https://github.com/joaolfp/MyInfo");
-    println!("🔢 0.5.0 Version \n");
+    println!("🔢 0.6.0 Version \n");
 }
 
 pub fn header() -> String {

@@ -19,7 +19,7 @@ cargo install my-info
 my-info
 ```
 
-<img src="https://github.com/joaolfp/MyInfo/blob/main/images/example.png">
+<img src="https://github.com/joaolfp/MyInfo/blob/main/assets/example.png">
 
 ## Contribution
 

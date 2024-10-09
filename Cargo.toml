@@ -12,10 +12,10 @@ exclude = [".github/**"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-colored = "2"
+colored = "2.1.0"
 comfy-table = "7.1.1"
-futures = "0.3"
+futures = "0.3.31"
 indicatif = "0.17.8"
 reqwest = { version = "0.12.8", features = ["json"] }
 tokio = { version = "1.40.0", features = ["full"] }
-serde = { version = "1.0", features = ["derive"] }
+serde = { version = "1.0.210", features = ["derive"] }

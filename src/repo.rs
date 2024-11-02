@@ -4,18 +4,18 @@ use comfy_table::Table;
 #[derive(Debug, Serialize, Deserialize)]
 struct RepoResponse {
     name: String,
-    owner: OwnerResponse,
+    owner: OwnerResponse
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 struct OwnerResponse {
-    url: String,
+    url: String
 }
 
 pub struct Repo;
 
 impl Repo {
-    pub async fn response_repo(user: String) -> Result<(), reqwest::Error> {
+    pub async fn response(user: String) -> Result<(), reqwest::Error> {
         let url = format!(
             "https://api.github.com/users/{set_user}/repos",
             set_user = user
@@ -29,7 +29,7 @@ impl Repo {
 
         if response.status().is_success() {
             let result: Vec<RepoResponse> = response.json().await?;
-            Self::setup_response(&result)
+            Self::validation_response(&result)
         } else {
             println!("Request failed with status code: {}", response.status());
         }
@@ -37,7 +37,7 @@ impl Repo {
         Ok(())
     }
 
-    fn setup_response(responses: &[RepoResponse]) {
+    fn validation_response(responses: &[RepoResponse]) {
         let mut table = Table::new();
 
         let titles = vec!["Name", "URL"];

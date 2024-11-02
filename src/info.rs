@@ -7,48 +7,52 @@ struct APIResponse {
     html_url: String,
     name: Option<String>,
     followers: i64,
-    following: i64
+    following: i64,
 }
 
-pub async fn response(user: String) -> Result<(), reqwest::Error> {
-    let url = format!(
-        "https://api.github.com/users/{set_user}",
-        set_user = user
-    );
+pub struct Info;
 
-    let response = reqwest::Client::new()
-        .get(url)
-        .header(reqwest::header::USER_AGENT, "MyInfo")
-        .send()
-        .await?;
+impl Info {
+    pub async fn response(user: String) -> Result<(), reqwest::Error> {
+        let url = format!(
+            "https://api.github.com/users/{set_user}",
+            set_user = user
+        );
 
-    if response.status().is_success() {
-        let result: APIResponse = response.json().await?;
-        setup_response(&result)
-    } else {
-        println!("Request failed with status code: {}", response.status());
+        let response = reqwest::Client::new()
+            .get(url)
+            .header(reqwest::header::USER_AGENT, "MyInfo")
+            .send()
+            .await?;
+
+        if response.status().is_success() {
+            let result: APIResponse = response.json().await?;
+            Self::setup_response(&result)
+        } else {
+            println!("Request failed with status code: {}", response.status());
+        }
+
+        Ok(())
     }
 
-    Ok(())
-}
+    fn setup_response(response: &APIResponse) {
+        let mut table = Table::new();
 
-fn setup_response(response: &APIResponse) {
-    let mut table = Table::new();
+        let titles = vec!["Login", "URL", "Name", "Followers", "Following"];
 
-    let titles = vec!["Login", "URL", "Name", "Followers", "Following"];
+        let name = match &response.name {
+            Some(n) => n.to_string(),
+            None => String::from("N/A"),
+        };
 
-    let name = match &response.name {
-        Some(n) => n.to_string(),
-        None => String::from("N/A"),
-    };
+        let rows = vec![
+            response.login.to_string(),
+            response.html_url.to_string(),
+            name,
+            response.followers.to_string(),
+            response.following.to_string()];
 
-    let rows = vec![
-        response.login.to_string(),
-        response.html_url.to_string(),
-        name,
-        response.followers.to_string(),
-        response.following.to_string()];
-
-    table.set_header(titles).add_row(rows);
-    println!("{table}");
+        table.set_header(titles).add_row(rows);
+        println!("{table}");
+    }
 }

@@ -12,11 +12,11 @@ async fn main() -> Result<(), reqwest::Error> {
     Header::presentation();
 
     let user = Header::show_field();
-    response(user.clone()).await?;
+    Info::response(user.clone()).await?;
 
     println!("--------------------------------- \n");
     println!("Repositories");
 
-    Repo::response_repo(user).await?;
+    Repo::response(user).await?;
     Ok(())
 }

@@ -9,9 +9,9 @@ use crate::repo::*;
 
 #[tokio::main]
 async fn main() -> Result<(), reqwest::Error> {
-    presentation();
+    Header::presentation();
 
-    let user = header();
+    let user = Header::show_field();
     response(user.clone()).await?;
 
     println!("--------------------------------- \n");

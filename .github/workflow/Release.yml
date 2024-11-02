@@ -1,0 +1,46 @@
+name: Release on Version Commit
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'Prepare version to *'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Get version from commit
+        id: version
+        run: |
+          echo "::set-output name=version::$(echo "${GITHUB_REF}" | sed -e 's/refs\/tags\///')"
+
+      - name: Extract Changelog Section
+        id: changelog
+        run: |
+          CHANGELOG_SECTION=$(awk '/^## / {flag=0} /^## '${{ steps.version.outputs.version }}'/ {flag=1} flag' CHANGELOG.md)
+          
+          FORMATTED_CHANGELOG=$(echo "$CHANGELOG_SECTION" | awk 'BEGIN {ORS="\n"} /^### / {section=$0; flag=0} !/^### / && NF {flag=1} flag {print (flag && !/^### / ? section "\n" : "") $0; section=""; flag=0}')
+
+          echo "::set-output name=body::$FORMATTED_CHANGELOG"
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: "${{ steps.version.outputs.version }}"
+          release_name: "Release ${{ steps.version.outputs.version }}"
+          body: ${{ steps.changelog.outputs.body }}
+          draft: false
+          prerelease: false

@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.7.0 - 2024-11-02
+
+### 🚀 Features
+- Bump reqwest from 0.12.8 to 0.12.9 by @dependabot - #53
+- Bump serde from 1.0.213 to 1.0.214 by @dependabot - #54
+- Bump tokio from 1.40.0 to 1.41.0 by @dependabot - #51
+
+### 🔍 Other Changes
+- Adjust code and rename functions by @joaolfp - #56
+- Setup clippy and indent code by @joaolfp - #55
+
 ## Version 0.6.0
 **2024-10-05**
 

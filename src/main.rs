@@ -17,6 +17,6 @@ async fn main() -> Result<(), reqwest::Error> {
     println!("--------------------------------- \n");
     println!("Repositories");
 
-    response_repo(user).await?;
+    Repo::response_repo(user).await?;
     Ok(())
 }

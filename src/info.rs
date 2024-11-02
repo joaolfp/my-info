@@ -7,7 +7,7 @@ struct APIResponse {
     html_url: String,
     name: Option<String>,
     followers: i64,
-    following: i64,
+    following: i64
 }
 
 pub async fn response(user: String) -> Result<(), reqwest::Error> {

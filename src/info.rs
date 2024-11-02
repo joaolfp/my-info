@@ -1,4 +1,3 @@
-use reqwest;
 use serde::{Deserialize, Serialize};
 use comfy_table::Table;
 

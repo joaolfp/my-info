@@ -1,6 +1,6 @@
 mod tests {
     use tokio::test;
-    
+
     #[allow(unused_imports)]
     use crate::response;
 
@@ -19,14 +19,14 @@ mod tests {
     }
 
     #[test]
-     async fn test_response() {
+    async fn test_response() {
         let result = response("user".to_string()).await;
         assert!(result.is_ok());
     }
 
     #[test]
     async fn test_response_repo() {
-       let result = response_repo("user".to_string()).await;
-       assert!(result.is_ok());
-   }
+        let result = response_repo("user".to_string()).await;
+        assert!(result.is_ok());
+    }
 }

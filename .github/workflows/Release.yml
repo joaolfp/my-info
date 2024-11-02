@@ -6,7 +6,6 @@ on:
       - main
     tags:
       - 'Prepare version to *'
-
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -20,19 +19,18 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Get version from commit
+      - name: Get version from tag
         id: version
         run: |
+          # Extrai a versão da tag removendo o prefixo "refs/tags/"
           VERSION=$(echo "${GITHUB_REF}" | sed -e 's/refs\/tags\///')
           echo "version=$VERSION" >> $GITHUB_ENV
 
       - name: Extract Changelog Section
         id: changelog
         run: |
-          # Extrai a seção correspondente à versão do changelog
           CHANGELOG_SECTION=$(sed -n "/^## ${{ env.version }}/,/^## /p" CHANGELOG.md | sed '$d')
 
-          # Remove seções vazias e mantém apenas seções com conteúdo
           FORMATTED_CHANGELOG=$(echo "$CHANGELOG_SECTION" | awk 'BEGIN {ORS="\n"} /^### / {section=$0; flag=0} !/^### / && NF {flag=1} flag {print (flag && !/^### / ? section "\n" : "") $0; section=""; flag=0}')
 
           echo "body=$FORMATTED_CHANGELOG" >> $GITHUB_ENV

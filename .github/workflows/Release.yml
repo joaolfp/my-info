@@ -1,9 +1,7 @@
-name: Release on Version Commit
+name: Release on Tag Push
 
 on:
   push:
-    branches:
-      - main
     tags:
       - 'Prepare version to *'
 
@@ -14,11 +12,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
 
       - name: Get version from tag
         id: version

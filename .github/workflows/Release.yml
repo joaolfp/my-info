@@ -6,6 +6,7 @@ on:
       - main
     tags:
       - 'Prepare version to *'
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -22,8 +23,7 @@ jobs:
       - name: Get version from tag
         id: version
         run: |
-          # Extrai a versão da tag removendo o prefixo "refs/tags/"
-          VERSION=$(echo "${GITHUB_REF}" | sed -e 's/refs\/tags\///')
+          VERSION=${GITHUB_REF#refs/tags/}
           echo "version=$VERSION" >> $GITHUB_ENV
 
       - name: Extract Changelog Section
@@ -41,7 +41,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: "${{ env.version }}"
-          release_name: "Release ${{ env.version }}"
+          release_name: "${{ env.version }}"
           body: "${{ env.body }}"
           draft: false
           prerelease: false

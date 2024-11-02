@@ -1,5 +1,3 @@
-use reqwest;
-
 mod tests;
 mod info;
 mod header;

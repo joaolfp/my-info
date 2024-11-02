@@ -32,8 +32,8 @@ pub fn header() -> String {
     println!("\n");
     progress_bar();
     println!("\n");
-    
-    return user
+
+    user
 }
 
 fn progress_bar() {

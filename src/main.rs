@@ -9,14 +9,14 @@ use crate::repo::*;
 
 #[tokio::main]
 async fn main() -> Result<(), reqwest::Error> {
-    presentation();
+    Header::presentation();
 
-    let user = header();
-    response(user.clone()).await?;
+    let user = Header::show_field();
+    Info::response(user.clone()).await?;
 
     println!("--------------------------------- \n");
     println!("Repositories");
 
-    response_repo(user).await?;
+    Repo::response(user).await?;
     Ok(())
 }

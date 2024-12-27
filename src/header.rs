@@ -24,12 +24,13 @@ impl Header {
         println!("🔢 0.7.0 Version \n");
     }
 
-    pub fn show_field() -> String {
+    pub fn show_field() -> Result<String, String> {
         let validation_empty = |s: &str| {
-            if s.is_empty() {
-                return Err("Username cannot be empty");
+            if s.trim().is_empty() {
+                Err("Username cannot be empty")
+            } else {
+                Ok(())
             }
-            Ok(())
         };
 
         let input = Input::new("Username")
@@ -37,6 +38,17 @@ impl Header {
             .prompt("Username: ")
             .validation(validation_empty);
 
-        input.run().expect("Error typing username")
+        match input.run() {
+            Ok(username) => Ok(username),
+            Err(err) => {
+                if err.to_string().contains("interrupted") {
+                    println!("{}", "Bye Bye!!".blue());
+                    Err("".to_string())
+                } else {
+                    println!("{}", format!("Error: {}", err).red());
+                    Err("".to_string())
+                }
+            }
+        }
     }
 }

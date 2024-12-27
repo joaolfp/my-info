@@ -11,7 +11,13 @@ use crate::repo::*;
 async fn main() -> Result<(), reqwest::Error> {
     Header::presentation();
 
-    let user = Header::show_field();
+    let user = match Header::show_field() {
+        Ok(username) => username,
+        Err(_) => {
+            return Ok(());
+        }
+    };
+
     Info::response(user.clone()).await?;
 
     println!("--------------------------------- \n");

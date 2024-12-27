@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## 0.8.0 - 2024-12-27
+
+### 🚀 Features
+- Update input to demand input by @joaolfp - #66
+
+### 🐛 Bug Fixes
+- idna security by @joaolfp - #65
+
+### 🔍 Other Changes
+- Bump reqwest from 0.12.9 to 0.12.10 by @dependabot - #64
+- Bump colored from 2.1.0 to 2.2.0 by @dependabot - #63
+- Bump serde from 1.0.215 to 1.0.216 by @dependabot - #62
+- Bump tokio from 1.41.1 to 1.42.0 by @dependabot - #61
+- Bump actions/checkout from 3 to 4 by @dependabot - #57
+
 ## 0.7.0 - 2024-11-02
 
 ### 🚀 Features

@@ -21,7 +21,7 @@ impl Header {
         println!("🧰 In this project you will see some information about yourself through the GitHub user");
         println!("🔨 João Lucas");
         println!("💻 https://github.com/joaolfp/MyInfo");
-        println!("🔢 0.7.0 Version \n");
+        println!("🔢 0.8.0 Version \n");
     }
 
     pub fn show_field() -> Result<String, String> {

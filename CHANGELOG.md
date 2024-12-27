@@ -6,6 +6,7 @@
 - Update input to demand input by @joaolfp - #66
 
 ### 🐛 Bug Fixes
+- Interrupted control c by joaolfp - #67
 - idna security by @joaolfp - #65
 
 ### 🔍 Other Changes

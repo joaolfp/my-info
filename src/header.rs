@@ -1,8 +1,5 @@
-use std::io;
 use colored::Colorize;
-use indicatif::ProgressBar;
-use std::thread::sleep;
-use std::time::Duration;
+use demand::Input;
 
 pub struct Header;
 
@@ -28,26 +25,18 @@ impl Header {
     }
 
     pub fn show_field() -> String {
-        println!("Enter the user you want to query:");
-        let mut user = String::new();
-        io::stdin().read_line(&mut user).expect("Error typing username");
+        let validation_empty = |s: &str| {
+            if s.is_empty() {
+                return Err("Username cannot be empty");
+            }
+            Ok(())
+        };
 
-        println!("\n");
-        Self::progress_bar();
-        println!("\n");
+        let input = Input::new("Username")
+            .placeholder("Enter the user you want to query:")
+            .prompt("Username: ")
+            .validation(validation_empty);
 
-        user
-    }
-
-    fn progress_bar() {
-        let total_steps = 100;
-        let progress_bar = ProgressBar::new(total_steps);
-
-        for _ in 0..total_steps {
-            progress_bar.inc(1);
-            sleep(Duration::from_millis(50));
-        }
-
-        progress_bar.finish_with_message("Done");
+        input.run().expect("Error typing username")
     }
 }
